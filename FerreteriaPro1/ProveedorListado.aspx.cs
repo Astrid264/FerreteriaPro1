@@ -51,7 +51,7 @@ namespace FerreteriaPro1
                 if (_Conexion.conectar())
                 {
                     DataTable dtUsuario = new DataTable();
-                    dtUsuario = _Conexion.CargarDatos("select * from proveedores");
+                    dtUsuario = _Conexion.CargarDatos("select * from proveedor");
                     if (dtUsuario.Rows.Count > 0)
                     {
                         dgvListado.DataSource = dtUsuario;

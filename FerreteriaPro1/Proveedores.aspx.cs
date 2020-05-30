@@ -28,13 +28,7 @@ namespace FerreteriaPro1
 
             ObtenerDatosProveedor();
         }
-
         private void ObtenerDatosProveedor()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ObtenerDatosProveedor(object _Proveedor)
         {
             try
             {

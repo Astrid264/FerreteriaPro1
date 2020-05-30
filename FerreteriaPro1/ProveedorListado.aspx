@@ -10,7 +10,7 @@
             <div class="table-responsive">
                 <asp:GridView ID="dgvListado" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-bordered table-hover dataTable no-footer" role="grid">
                     <Columns>
-                        <asp:BoundField AccessibleHeaderText="id_proveedor" DataField="id_cliente" HeaderText="id proveedor">
+                        <asp:BoundField AccessibleHeaderText="id_proveedor" DataField="id_proveedor" HeaderText="id proveedor">
                             <ItemStyle HorizontalAlign="Center" CssClass="hidden" />
                             <HeaderStyle CssClass="text-center info hidden" />
                         </asp:BoundField>

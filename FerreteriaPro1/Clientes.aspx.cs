@@ -75,8 +75,8 @@ namespace FerreteriaPro1
             {
                 Negocio.Clientes _Clientes = new Negocio.Clientes();
                 _Clientes.NombreCliente = txtNombreCliente.Text.Trim();
-                _Clientes.DireccionCliente = txtDireccionCliente.Text.Trim();
-                _Clientes.TelefonoCliente = txtTelefonoCliente.Text.Trim();
+                _Clientes.DireccionCliente = txtDireccionClientes.Text.Trim();
+                _Clientes.TelefonoCliente = txtTelefonoClientes.Text.Trim();
                 if (_Clientes.OperarClientes())
                 {
 
