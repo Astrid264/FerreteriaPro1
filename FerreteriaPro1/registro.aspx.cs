@@ -34,7 +34,6 @@ namespace FerreteriaPro1
             {
                 if (_Conexion.conectar())
                 {
-                    _MensajeError = "Conexión exitosa";
                     DataTable dtRoles = new DataTable();
                     dtRoles = _Conexion.CargarDatos("select id_rol, rol from rol order by id_rol");
                     if (dtRoles.Rows.Count > 0)

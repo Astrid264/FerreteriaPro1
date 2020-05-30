@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace FerreteriaPro1
 {
-    public partial class ClientesListado : System.Web.UI.Page
+    public partial class CompraListado : System.Web.UI.Page
     {
         public FerreteriaPro1.conexion.conexion _Conexion = new FerreteriaPro1.conexion.conexion();
         public string _MensajeSatisfactorio = "";
@@ -18,7 +18,7 @@ namespace FerreteriaPro1
             try
             {
                 Seguridad();
-                ObtenerClientes();
+                ObtenerCompras();
             }
             catch (Exception ex)
             {
@@ -29,9 +29,9 @@ namespace FerreteriaPro1
         {
             try
             {
-                if (Request.Cookies["idusuario"] != null)
+                if (Request.Cookies["idUsuario"] != null)
                 {
-                    if (Request.Cookies["idusuario"].Value == null || Request.Cookies["idusuario"].Value == "")
+                    if (Request.Cookies["idUsuario"].Value == null || Request.Cookies["idUsuario"].Value == "")
                     {
                         Response.Redirect("login.aspx");
                     }
@@ -44,17 +44,17 @@ namespace FerreteriaPro1
                 _MensajeError = ex.Message;
             }
         }
-        private void ObtenerClientes()
+        private void ObtenerCompras()
         {
             try
             {
                 if (_Conexion.conectar())
                 {
-                    DataTable dtUsuario = new DataTable();
-                    dtUsuario = _Conexion.CargarDatos("select * from clientes");
-                    if (dtUsuario.Rows.Count > 0)
+                    DataTable dtArticulos = new DataTable();
+                    dtArticulos = _Conexion.CargarDatos("select com.id_compra,com.fecha_compra,pro.nombre_proveedor,sum(cod.total_compra_detalle) as monto_total_compra from compra com inner join compra_detalle cod on com.id_compra = cod.id_compra inner join PROVEEDOR pro on com.id_proveedor=pro.id_proveedor group by com.id_compra,com.fecha_compra,pro.nombre_proveedor");
+                    if (dtArticulos.Rows.Count > 0)
                     {
-                        dgvListado.DataSource = dtUsuario;
+                        dgvListado.DataSource = dtArticulos;
                         dgvListado.DataBind();
                     }
                 }
@@ -67,18 +67,6 @@ namespace FerreteriaPro1
             {
                 _MensajeError = ex.Message;
             }
-        }
-
-        protected void dgvListado_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            int idCliente = Convert.ToInt32(dgvListado.Rows[e.NewEditIndex].Cells[0].Text);
-            Response.Redirect("Clientes.aspx?op=2&idc=" + idCliente);
-        }
-
-        protected void dgvListado_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int idCliente = Convert.ToInt32(dgvListado.Rows[e.RowIndex].Cells[0].Text);
-            Response.Redirect("Clientes.aspx?op=3&idc=" + idCliente);
         }
     }
 }

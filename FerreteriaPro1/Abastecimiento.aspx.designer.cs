@@ -11,44 +11,35 @@ namespace FerreteriaPro1
 {
 
 
-    public partial class Clientes
+    public partial class Abastecimiento
     {
 
         /// <summary>
-        /// Control txtIdCliente.
+        /// Control cmbArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCliente;
+        protected global::System.Web.UI.WebControls.DropDownList cmbArticulos;
 
         /// <summary>
-        /// Control txtNombreCliente.
+        /// Control txtCantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
 
         /// <summary>
-        /// Control txtTelefonoClientes.
+        /// Control cmbIdFerreteria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefonoClientes;
-
-        /// <summary>
-        /// Control txtDireccionClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccionClientes;
+        protected global::System.Web.UI.WebControls.DropDownList cmbIdFerreteria;
 
         /// <summary>
         /// Control btnGuardar.

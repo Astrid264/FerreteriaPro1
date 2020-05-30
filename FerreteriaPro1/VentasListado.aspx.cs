@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace FerreteriaPro1
 {
-    public partial class ClientesListado : System.Web.UI.Page
+    public partial class VentasListado : System.Web.UI.Page
     {
         public FerreteriaPro1.conexion.conexion _Conexion = new FerreteriaPro1.conexion.conexion();
         public string _MensajeSatisfactorio = "";
@@ -18,7 +18,7 @@ namespace FerreteriaPro1
             try
             {
                 Seguridad();
-                ObtenerClientes();
+                ObtenerVentas();
             }
             catch (Exception ex)
             {
@@ -29,9 +29,9 @@ namespace FerreteriaPro1
         {
             try
             {
-                if (Request.Cookies["idusuario"] != null)
+                if (Request.Cookies["idUsuario"] != null)
                 {
-                    if (Request.Cookies["idusuario"].Value == null || Request.Cookies["idusuario"].Value == "")
+                    if (Request.Cookies["idUsuario"].Value == null || Request.Cookies["idUsuario"].Value == "")
                     {
                         Response.Redirect("login.aspx");
                     }
@@ -44,17 +44,17 @@ namespace FerreteriaPro1
                 _MensajeError = ex.Message;
             }
         }
-        private void ObtenerClientes()
+        private void ObtenerVentas()
         {
             try
             {
                 if (_Conexion.conectar())
                 {
-                    DataTable dtUsuario = new DataTable();
-                    dtUsuario = _Conexion.CargarDatos("select * from clientes");
-                    if (dtUsuario.Rows.Count > 0)
+                    DataTable dtArticulos = new DataTable();
+                    dtArticulos = _Conexion.CargarDatos("select VEN.ID_VENTA, VEN.FECHA_VENTA, CLI.nombre_cliente, FER.nombre as nombre_ferreteria, SUM(VED.total_venta_detalle) as monto_total_venta from VENTA VEN INNER JOIN CLIENTES CLI ON VEN.id_cliente = CLI.id_cliente INNER JOIN FERRETERIA FER ON FER.id_ferreteria = VEN.ID_FERRETERIA INNER JOIN VENTA_DETALLE VED ON VEN.ID_VENTA = VED.ID_VENTA group by VEN.ID_VENTA , VEN.FECHA_VENTA, CLI.nombre_cliente, FER.nombre");
+                    if (dtArticulos.Rows.Count > 0)
                     {
-                        dgvListado.DataSource = dtUsuario;
+                        dgvListado.DataSource = dtArticulos;
                         dgvListado.DataBind();
                     }
                 }
@@ -67,18 +67,6 @@ namespace FerreteriaPro1
             {
                 _MensajeError = ex.Message;
             }
-        }
-
-        protected void dgvListado_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            int idCliente = Convert.ToInt32(dgvListado.Rows[e.NewEditIndex].Cells[0].Text);
-            Response.Redirect("Clientes.aspx?op=2&idc=" + idCliente);
-        }
-
-        protected void dgvListado_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int idCliente = Convert.ToInt32(dgvListado.Rows[e.RowIndex].Cells[0].Text);
-            Response.Redirect("Clientes.aspx?op=3&idc=" + idCliente);
         }
     }
 }

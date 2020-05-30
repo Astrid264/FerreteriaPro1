@@ -15,7 +15,8 @@ namespace FerreteriaPro1
         public string _MensajeError = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Cookies["idusuario"].Expires = DateTime.Now.AddDays(-1);
+            Request.Cookies["idusuario"].Expires = DateTime.Now.AddDays(-1);
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace FerreteriaPro1
                 if (_Conexion.conectar())
                 {
                     DataTable dtUsuario = new DataTable();
-                    dtUsuario = _Conexion.CargarDatos("select usuario from usuario where usuario = '"+txtUsuario.Text.Trim()+ "' and contraseña = '" + txtContrasena.Text.Trim()+ "'");
+                    dtUsuario = _Conexion.CargarDatos("select usuario from usuario where usuario = '" + txtUsuario.Text.Trim() + "' and contraseña = '" + txtContrasena.Text.Trim() + "'");
                     if (dtUsuario.Rows.Count > 0)
                     {
                         _MensajeSatisfactorio = "Usuario correcto";

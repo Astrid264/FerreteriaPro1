@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 
@@ -68,8 +69,8 @@ namespace FerreteriaPro1.Negocio
                 _DireccionCliente = value;
             }
         }
-        private int _TipoOperacion;
-        public int TipoOperacion
+        private string _TipoOperacion;
+        public string TipoOperacion
         {
             get
             {
@@ -87,6 +88,14 @@ namespace FerreteriaPro1.Negocio
             bool _Resultado = true;
             try
             {
+                if (_TipoOperacion != "1") // Es modificar o eliminar
+                {
+                    if (_IdCliente == "")
+                    {
+                        _Mensaje += "Debe ingresar el id del cliente"; _Resultado = false;
+                    }
+                }
+
                 if (_NombreCliente == "")
                 {
                     _Mensaje += "Debe ingresar el nombre del cliente"; _Resultado = false;
@@ -125,26 +134,57 @@ namespace FerreteriaPro1.Negocio
                 _Resultado = ValidarDatosClientes();
                 if (_Resultado)
                 {
-                    FerreteriaPro1.conexion.conexion _Conexion = new FerreteriaPro1.conexion.conexion();
-                    string consulta = "insert into clientes (nombre_cliente, direccion_cliente, telefono_cliente) values ("
-                        + "'" + _NombreCliente + "', "
-                        + "'" + _DireccionCliente + "', "
-                        + _TelefonoCliente + ""
-                       + ")";
-                    if (_Conexion.EjecutarComandoSql(consulta) > 0)
+                    if (_TipoOperacion == "1")
                     {
-                        _Resultado = true;
+                        FerreteriaPro1.conexion.conexion _Conexion = new FerreteriaPro1.conexion.conexion();
+                        string consulta = "insert into clientes (nombre_cliente, direccion_cliente, telefono_cliente) values ("
+                            + "'" + _NombreCliente + "', "
+                            + "'" + _DireccionCliente + "', "
+                            + _TelefonoCliente + ""
+                           + ")";
+                        if (_Conexion.EjecutarComandoSql(consulta) > 0)
+                        {
+                            _Resultado = true;
+                        }
+                        else
+                        {
+                            _Resultado = false;
+                            _Mensaje = _Conexion.Mensaje;
+                        }
                     }
-                    else
+                    if (_TipoOperacion == "2")
                     {
-                        _Resultado = false;
-                        _Mensaje = _Conexion.Mensaje;
+                        FerreteriaPro1.conexion.conexion _Conexion = new FerreteriaPro1.conexion.conexion();
+                        string consulta = "update clientes set nombre_cliente = '" + _NombreCliente + "', direccion_cliente = '" + _DireccionCliente + "', telefono_cliente= " + _TelefonoCliente + " where id_cliente = " + _IdCliente;
+                        if (_Conexion.EjecutarComandoSql(consulta) > 0)
+                        {
+                            _Resultado = true;
+                        }
+                        else
+                        {
+                            _Resultado = false;
+                            _Mensaje = _Conexion.Mensaje;
+                        }
+                    }
+                    if (_TipoOperacion == "3")
+                    {
+                        FerreteriaPro1.conexion.conexion _Conexion = new FerreteriaPro1.conexion.conexion();
+                        string consulta = "delete from clientes where id_cliente = " + _IdCliente;
+                        if (_Conexion.EjecutarComandoSql(consulta) > 0)
+                        {
+                            _Resultado = true;
+                        }
+                        else
+                        {
+                            _Resultado = false;
+                            _Mensaje = _Conexion.Mensaje;
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Mensaje = ex.Message;
+                _Mensaje = ex.Message;
                 _Resultado = false;
             }
             return _Resultado;

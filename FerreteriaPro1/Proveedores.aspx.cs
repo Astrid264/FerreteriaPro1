@@ -38,7 +38,7 @@ namespace FerreteriaPro1
                     string operacion = Request.QueryString["op"];
                     if (operacion == null || operacion == "" || idProveedor == null || idProveedor == "")
                     {
-                        _MensajeError = "Debe ingresar operacion y codigo del proveedor";
+                        //_MensajeError = "Debe ingresar operacion y codigo del proveedor";
                     }
                     else
                     {

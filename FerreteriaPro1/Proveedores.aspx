@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Proveedores.aspx.cs" Inherits="FerreteriaPro1.Proveedores" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>Proveedores</h3>
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">

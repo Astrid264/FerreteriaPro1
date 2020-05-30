@@ -105,9 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Abastecimiento.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="Articulos.aspx" />
+    <Content Include="ArticulosListado.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="ClientesListado.aspx" />
+    <Content Include="Compra.aspx" />
+    <Content Include="CompraListado.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -162,12 +167,21 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Venta.aspx" />
+    <Content Include="VentasListado.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abastecimiento.aspx.cs">
+      <DependentUpon>Abastecimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Abastecimiento.aspx.designer.cs">
+      <DependentUpon>Abastecimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -177,6 +191,20 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Articulos.aspx.cs">
+      <DependentUpon>Articulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Articulos.aspx.designer.cs">
+      <DependentUpon>Articulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArticulosListado.aspx.cs">
+      <DependentUpon>ArticulosListado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArticulosListado.aspx.designer.cs">
+      <DependentUpon>ArticulosListado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,6 +218,20 @@
     </Compile>
     <Compile Include="ClientesListado.aspx.designer.cs">
       <DependentUpon>ClientesListado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compra.aspx.cs">
+      <DependentUpon>Compra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compra.aspx.designer.cs">
+      <DependentUpon>Compra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraListado.aspx.cs">
+      <DependentUpon>CompraListado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraListado.aspx.designer.cs">
+      <DependentUpon>CompraListado.aspx</DependentUpon>
     </Compile>
     <Compile Include="conexion\conexion.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -230,10 +272,14 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\Abastecimiento.cs" />
+    <Compile Include="Negocio\Articulos.cs" />
     <Compile Include="Negocio\Clientes.cs" />
+    <Compile Include="Negocio\Compra.cs" />
     <Compile Include="Negocio\Ferreteria.cs" />
     <Compile Include="Negocio\Proveedor.cs" />
     <Compile Include="Negocio\Usuario.cs" />
+    <Compile Include="Negocio\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedores.aspx.cs">
       <DependentUpon>Proveedores.aspx</DependentUpon>
@@ -270,6 +316,20 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Venta.aspx.cs">
+      <DependentUpon>Venta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Venta.aspx.designer.cs">
+      <DependentUpon>Venta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VentasListado.aspx.cs">
+      <DependentUpon>VentasListado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VentasListado.aspx.designer.cs">
+      <DependentUpon>VentasListado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,6 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

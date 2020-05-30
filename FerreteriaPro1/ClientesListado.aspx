@@ -1,15 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClientesListado.aspx.cs" Inherits="FerreteriaPro1.ClientesListado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="row">        
+    <h3>Listado de clientes</h3>
+    <div class="row">
         <div class="col-lg-12">
-            <input type="button" class="btn btn-primary" value="Agregar" onclick="location.href = 'Clientes.aspx';" />
+            <input type="button" class="btn btn-primary" value="Agregar" onclick="location.href = 'Clientes.aspx?op=1';" />
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive">
-                <asp:GridView ID="dgvListado" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-bordered table-hover dataTable no-footer" role="grid">
+                <asp:GridView ID="dgvListado" runat="server" AutoGenerateColumns="False" CssClass="table table-condensed table-striped table-bordered table-hover dataTable no-footer" role="grid" OnRowEditing="dgvListado_RowEditing" OnRowDeleting="dgvListado_RowDeleting">
                     <Columns>
                         <asp:BoundField AccessibleHeaderText="id_cliente" DataField="id_cliente" HeaderText="id cliente">
                             <ItemStyle HorizontalAlign="Center" CssClass="hidden" />
@@ -27,6 +28,14 @@
                             <ItemStyle HorizontalAlign="Center" CssClass="" />
                             <HeaderStyle CssClass="text-center info" />
                         </asp:BoundField>
+                        <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="noShowLoader" EditText="<i class='glyphicon glyphicon-pencil text-primary'></i>" AccessibleHeaderText="" HeaderText="Modificar">
+                            <ItemStyle CssClass="" HorizontalAlign="Center" Width="5%" />
+                            <HeaderStyle CssClass="info text-center " />
+                        </asp:CommandField>
+                        <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="noShowLoader" DeleteText="<i class='glyphicon glyphicon-trash text-danger'></i>" AccessibleHeaderText="" HeaderText="Eliminar">
+                            <ItemStyle CssClass="" HorizontalAlign="Center" Width="5%" />
+                            <HeaderStyle CssClass="info text-center " />
+                        </asp:CommandField>
                     </Columns>
                     <PagerStyle CssClass="pagination-ys" />
                     <PagerSettings Mode="NumericFirstLast" />

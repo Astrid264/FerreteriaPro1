@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -13,7 +13,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -47,13 +47,51 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/">Ferreterías Velásquez Pérez</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catálogos
+        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="registro.aspx">Usuarios</a></li>
+                                <li><a href="ClientesListado.aspx">Clientes</a></li>
+                                <li><a href="ProveedorListado.aspx">Proveedores</a></li>
+                                <li><a href="ArticulosListado.aspx">Artículos</a></li>
+                                <li><a href="FerreteriaListado.aspx">Ferreterías</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Procesos
+        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Abastecimiento.aspx">Abastecimiento</a></li>
+                                <li><a href="VentasListado.aspx">Ventas</a></li>
+                                <li><a href="CompraListado.aspx">Compras</a></li>
+                            </ul>
+                        </li>
+                        <%
+                            if (_Usuario == "" || _Usuario == null)
+                            {
+                        %>
+                        <li><a runat="server" href="login.aspx">Iniciar sesión</a></li>
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=_Usuario %>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="login.aspx">Salir</a></li>
+                            </ul>
+                        </li>
+                        <%
+                            }
+                        %>
                     </ul>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FerreteriaListado.aspx.cs" Inherits="FerreteriaPro1.FerreteriaListado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>Listado de ferreterías</h3>
     <div class="row">        
         <div class="col-lg-12">
             <input type="button" class="btn btn-primary" value="Agregar" onclick="location.href = 'Ferreteria.aspx';" />

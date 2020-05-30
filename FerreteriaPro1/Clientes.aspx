@@ -1,11 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="FerreteriaPro1.Clientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>Clientes (<%=_Operacion %>)</h3>
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <asp:TextBox runat="server" ID="txtIdCliente" CssClass="form-control" Enabled="false" Visible="False"></asp:TextBox>
                 <asp:TextBox runat="server" ID="txtNombreCliente" CssClass="form-control" placeholder="nombre completo"></asp:TextBox>
             </div>
         </div>

@@ -11,44 +11,62 @@ namespace FerreteriaPro1
 {
 
 
-    public partial class Clientes
+    public partial class ARTICULOS
     {
 
         /// <summary>
-        /// Control txtIdCliente.
+        /// Control txtNombreArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreArticulo;
 
         /// <summary>
-        /// Control txtNombreCliente.
+        /// Control txtDescripcionArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcionArticulo;
 
         /// <summary>
-        /// Control txtTelefonoClientes.
+        /// Control cmbUnidadMedida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefonoClientes;
+        protected global::System.Web.UI.WebControls.DropDownList cmbUnidadMedida;
 
         /// <summary>
-        /// Control txtDireccionClientes.
+        /// Control txtPrecioArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccionClientes;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioArticulo;
+
+        /// <summary>
+        /// Control txtStockArticulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtStockArticulo;
+
+        /// <summary>
+        /// Control cmbProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbProveedor;
 
         /// <summary>
         /// Control btnGuardar.
